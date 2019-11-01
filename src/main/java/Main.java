@@ -1,7 +1,6 @@
 import de.javagl.obj.*;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -22,7 +21,8 @@ public class Main {
         }
 
         var vertices = ObjData.getVertices(obj);
-        ObjModifier.centerVertices(vertices);
+        //We modified this method for transfer figure through polygons
+        ObjModifier.centerVertices(obj,vertices);
 
         var newObj = Objs.createFromIndexedTriangleData(ObjData.getFaceVertexIndices(obj),
                 vertices, ObjData.getTexCoords(obj, 2), ObjData.getNormals(obj));
